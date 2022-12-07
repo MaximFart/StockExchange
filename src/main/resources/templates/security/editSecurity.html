@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="~{navigation/navigation_bar :: navigation_bar}"></div>
+<div class="container my-2">
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <h1>Edit Security</h1>
+        <form th:action="@{/security/editSecurity}" th:object="${security}" th:method="POST">
+            <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{secId}"/>
+            <br>
+            <input type="text" th:field="*{regNumber}" placeholder="Enter Security RegNumber" class="form-control"/>
+            <br>
+            <input type="text" th:field="*{name}" placeholder="Enter Security Name" class="form-control"/>
+            <br>
+            <input type="text" th:field="*{emitentTitle}" placeholder="Enter Security Emitent Title" class="form-control"/>
+            <br>
+            <button type="submit" class="btn btn-secondary d-grid gap-2 col-12 mx-auto">Edit Security</button>
+        </form>
+        <hr>
+        <a type="submit" class="btn btn-warning d-grid gap-2 col-12 mx-auto" th:href="@{/security}">Return at Security List</a>
+    </div>
+</div>
+</body>
+</html>

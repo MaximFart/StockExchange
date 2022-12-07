@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="~{navigation/navigation_bar :: navigation_bar}"></div>
+<div class="container my-2">
+    <h1>Histories checklist</h1>
+    <a th:href="@{history/newHistory}" class="btn btn-info d-grid gap-2 col-3 mb-3 mx-auto">New History</a>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>SecId</th>
+            <th>TradeDate</th>
+            <th>NumTrades</th>
+            <th>Open</th>
+            <th>Close</th>
+            <th>Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="history : ${histories}">
+            <td th:text="${history.getId()}"></td>
+            <td th:text="${history.getSecurity().getSecId()}"></td>
+            <td th:text="${history.getTradeDate()}"></td>
+            <td th:text="${history.getNumTrades()}"></td>
+            <td th:text="${history.getOpen()}"></td>
+            <td th:text="${history.getClose()}"></td>
+            <td>
+                <a th:href="@{/history/editHistory/{id}(id=${history.id})}"
+                   class="btn btn-info d-grid gap-2 col-12 mx-auto">Edit</a>
+                <a th:href="@{/history/deleteHistory/{id}(id=${history.id})}"
+                   class="btn btn-danger d-grid gap-2 col-12 mx-auto">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+</div>
+</body>
+</html>

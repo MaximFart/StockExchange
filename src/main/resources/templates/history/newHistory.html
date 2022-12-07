@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+<body>
+<div th:replace="~{navigation/navigation_bar :: navigation_bar}"></div>
+<div class="container my-2">
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <h1>Create History</h1>
+        <br>
+        <form th:action="@{/history}" th:object="${history}" th:method="POST">
+            <div class="form-group">
+                <select class="form-control" th:field="*{security.secId}">
+                    <option value="">Select SecId</option>
+                    <option th:each="security : ${securities}"
+                            th:text="${security.secId}"
+                            th:value="${security.secId}"></option>
+                </select>
+            </div>
+            <input type="text" th:field="*{id}" placeholder="Enter History Id" class="form-control"/>
+            <br>
+            <input type="text" th:field="*{numTrades}" placeholder="Enter NumTrades" class="form-control"/>
+            <br>
+            <input type="text" th:field="*{open}" placeholder="Enter Open" class="form-control"/>
+            <br>
+            <input type="text" th:field="*{close}" placeholder="Enter Close" class="form-control"/>
+            <br>
+            <input type="text" th:field="*{tradeDate}" placeholder="Enter TradeDate" class="form-control"/>
+            <br>
+            <button type="submit" class="btn btn-secondary d-grid gap-2 col-12 mx-auto">Create History</button>
+        </form>
+        <hr>
+        <a type="submit" class="btn btn-warning d-grid gap-2 col-12 mx-auto" th:href="@{/history}">Return at History List</a>
+    </div>
+</div>
+</body>
+</html>

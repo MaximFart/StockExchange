@@ -1,0 +1,1 @@
+insert into securities(id, secid, regnumber, name, emitent_title) values (5, 'd', 'd', 'd', 'd');

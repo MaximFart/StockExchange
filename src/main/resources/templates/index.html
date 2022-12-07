@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="~{navigation/navigation_bar :: navigation_bar}"></div>
+<div class="container my-2">
+    <h1>Resumes checklist</h1>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>SecId</th>
+            <th>Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="security : ${securities}">
+            <td th:text="${security.getSecId()}"></td>
+            <td><a th:href="@{/resume/{secId}(secId=${security.secId})}"
+                   class="btn btn-info d-grid gap-2 col-12 mx-auto">Resume</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+</div>
+</body>
+</html>
