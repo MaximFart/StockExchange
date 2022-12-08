@@ -45,13 +45,13 @@ public class HistoryController {
         return "history/editHistory";
     }
 
-    @PostMapping("/editHistory")
+    @PutMapping("/editHistory")
     public String editHistory(@ModelAttribute("history") History history) {
         historyService.save(history);
         return "redirect:/history";
     }
 
-    @GetMapping("/deleteHistory/{id}")
+    @DeleteMapping("/deleteHistory/{id}")
     public String deleteHistory(@PathVariable("id") long id) {
         historyService.deleteById(id);
         return "redirect:/history";

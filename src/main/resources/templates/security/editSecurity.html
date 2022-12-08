@@ -13,7 +13,7 @@
 <div class="container my-2">
     <div class="d-grid gap-2 col-6 mx-auto">
         <h1>Edit Security</h1>
-        <form th:action="@{/security/editSecurity}" th:object="${security}" th:method="POST">
+        <form th:action="@{/security/editSecurity}" th:object="${security}" th:method="PUT">
             <input type="hidden" th:field="*{id}"/>
             <input type="hidden" th:field="*{secId}"/>
             <br>

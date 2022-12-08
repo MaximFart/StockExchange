@@ -38,13 +38,13 @@ public class SecurityController {
         return "security/editSecurity";
     }
 
-    @PostMapping("/editSecurity")
+    @PutMapping("/editSecurity")
     public String editSecurity(@ModelAttribute("security") Security security) {
         securityService.save(security);
         return "redirect:/security";
     }
 
-    @GetMapping("/deleteSecurity/{secId}")
+    @DeleteMapping("/deleteSecurity/{secId}")
     public String deleteSecurity(@PathVariable("secId") String secId) {
         securityService.deleteBySecId(secId);
         return "redirect:/security";

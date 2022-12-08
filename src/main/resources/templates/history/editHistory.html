@@ -14,7 +14,7 @@
     <div class="d-grid gap-2 col-6 mx-auto">
         <h1>Edit History</h1>
         <br>
-        <form th:action="@{/history/editHistory}" th:object="${history}" th:method="POST">
+        <form th:action="@{/history/editHistory}" th:object="${history}" th:method="PUT">
             <div class="form-group">
                 <select class="form-control" th:field="*{security.secId}">
                     <option value="">Select SecId</option>

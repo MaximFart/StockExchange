@@ -33,8 +33,11 @@
             <td th:text="${security.getEmitentTitle()}"></td>
             <td><a th:href="@{/security/editSecurity/{secId}(secId=${security.secId})}"
                    class="btn btn-info d-grid gap-2 col-12 mx-auto">Edit</a>
-                <a th:href="@{/security/deleteSecurity/{secId}(secId=${security.secId})}"
-                   class="btn btn-danger d-grid gap-2 col-12 mx-auto">Delete</a></td>
+                <form th:method="DELETE" th:action="@{/security/deleteSecurity/{secId}(secId=${security.secId})}">
+                    <button class="btn btn-danger  d-grid gap-2 col-12 mx-auto" type="submit" value="Delete">Delete</button>
+                </form>
+            </td>
+
         </tr>
         </tbody>
     </table>

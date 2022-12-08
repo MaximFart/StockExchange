@@ -36,8 +36,9 @@
             <td>
                 <a th:href="@{/history/editHistory/{id}(id=${history.id})}"
                    class="btn btn-info d-grid gap-2 col-12 mx-auto">Edit</a>
-                <a th:href="@{/history/deleteHistory/{id}(id=${history.id})}"
-                   class="btn btn-danger d-grid gap-2 col-12 mx-auto">Delete</a>
+                <form th:method="DELETE" th:action="@{/history/deleteHistory/{id}(id=${history.id})}">
+                    <button class="btn btn-danger  d-grid gap-2 col-12 mx-auto" type="submit" value="Delete">Delete</button>
+                </form>
             </td>
         </tr>
         </tbody>
